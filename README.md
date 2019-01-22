@@ -3,6 +3,7 @@
 - Download jmeter 5.0
 - Run the following
 ```
-mkdir /tmp/webreports
-bin/jmeter -n -t ~/workspace/stress-tests/partial-login-teachers-boclips.jmx -l my-results -e -o /tmp/webreports/
+mkdir -p /tmp/webreports
+rm -rf /tmp/webreports/*
+jmeter -n -t ~/workspace/stress-tests/partial-login-teachers-boclips.jmx -e -o /tmp/webreports/
 ```
