@@ -6,5 +6,11 @@
 (Make sure jmeter is in the PATH)
 
 ```
-./run-registered-user-journey
+./run-registered-user-journey 100 #For 100 concurrent users
+```
+
+To see results
+
+```
+open /tmp/webreports/index.html
 ```
