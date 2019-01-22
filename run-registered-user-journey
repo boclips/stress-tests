@@ -8,8 +8,8 @@ HEAP="-Xms1g -Xmx1g -XX:MaxMetaspaceSize=1024m"
 
 if [ -z "$threads" ]
 then
-  echo "Usage: $(basename "$0") THREADS"
-  exit 1
+    echo "Usage: $(basename "$0") THREADS"
+    exit 1
 fi
 
 mkdir -p /tmp/webreports
@@ -17,9 +17,9 @@ rm -rf /tmp/webreports*
 
 export HEAP
 jmeter \
-  -n \
-  -t "$cwd/partial-login-teachers-boclips.jmx" \
-  -l /tmp/webreports.log \
-  -e \
-  -o /tmp/webreports/ \
-  -Jthreads="$threads"
+    -n \
+    -t "$cwd/partial-login-teachers-boclips.jmx" \
+    -l /tmp/webreports.log \
+    -e \
+    -o /tmp/webreports/ \
+    -Jthreads="$threads"
