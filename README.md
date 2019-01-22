@@ -2,8 +2,9 @@
 
 - Download jmeter 5.0
 - Run the following
+
+(Make sure jmeter is in the PATH)
+
 ```
-mkdir -p /tmp/webreports
-rm -rf /tmp/webreports/*
-jmeter -n -t ~/workspace/stress-tests/partial-login-teachers-boclips.jmx -e -o /tmp/webreports/
+./run-registered-user-journey
 ```

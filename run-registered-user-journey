@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+set -e
+
+cwd="$(cd "$(dirname "$0")" && pwd)"
+
+mkdir -p /tmp/webreports
+rm -rf /tmp/webreports*
+jmeter \
+	-n \
+	-t "$cwd/partial-login-teachers-boclips.jmx" \
+	-l /tmp/webreports.log \
+	-e \
+	-o /tmp/webreports/ 
