@@ -4,7 +4,7 @@ set -e
 
 cwd="$(cd "$(dirname "$0")" && pwd)"
 threads=$1
-HEAP="-Xms1g -Xmx1g -XX:MaxMetaspaceSize=1024m"
+HEAP="-Xms4g -Xmx4g -XX:MaxMetaspaceSize=4096m"
 
 if [ -z "$threads" ]
 then
