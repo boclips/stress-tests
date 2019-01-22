@@ -4,8 +4,9 @@ set -e
 
 cwd="$(cd "$(dirname "$0")" && pwd)"
 threads=$1
+HEAP="-Xms1g -Xmx1g -XX:MaxMetaspaceSize=256m"
 
-if [ -z $threads ]
+if [ -z "$threads" ]
 then
   echo "Usage: $(basename "$0") THREADS"
   exit 1
@@ -13,6 +14,8 @@ fi
 
 mkdir -p /tmp/webreports
 rm -rf /tmp/webreports*
+
+export HEAP
 jmeter \
   -n \
   -t "$cwd/partial-login-teachers-boclips.jmx" \
