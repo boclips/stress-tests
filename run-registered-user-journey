@@ -4,22 +4,31 @@ set -e
 
 cwd="$(cd "$(dirname "$0")" && pwd)"
 threads=$1
+delay_thread_start=$2
 HEAP="-Xms4g -Xmx4g -XX:MaxMetaspaceSize=4096m"
 
-if [ -z "$threads" ]
+if [ -z "$threads" ] || [ -z "$delay_thread_start" ]
 then
-    echo "Usage: $(basename "$0") THREADS"
+    echo "Usage: $(basename "$0") THREADS DELAY_THREAD_START"
+    echo "Where THREADS is number of users and DELAY_THREAD_START is the time" \
+        "in seconds before each thread is started."
     exit 1
 fi
+
+ramp_up="$(bc <<< "$threads * $delay_thread_start")"
 
 mkdir -p /tmp/webreports
 rm -rf /tmp/webreports*
 
-export HEAP
-jmeter \
+cmd="jmeter \
     -n \
     -t "$cwd/partial-login-teachers-boclips.jmx" \
     -l /tmp/webreports.log \
     -e \
     -o /tmp/webreports/ \
-    -Jthreads="$threads"
+    -Jthreads=$threads \
+    -Jramp_up=$ramp_up"
+
+echo "$cmd"
+export HEAP
+$cmd

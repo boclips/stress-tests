@@ -6,7 +6,8 @@
 (Make sure jmeter is in the PATH)
 
 ```
-./run-registered-user-journey 100 #For 100 concurrent users
+# For 100 concurrent users, delaying 1s between thread starts
+./run-registered-user-journey 100 1
 ```
 
 To see results
