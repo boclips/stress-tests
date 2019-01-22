@@ -3,12 +3,20 @@
 set -e
 
 cwd="$(cd "$(dirname "$0")" && pwd)"
+threads=$1
+
+if [ -z $threads ]
+then
+  echo "Usage: $(basename "$0") THREADS"
+  exit 1
+fi
 
 mkdir -p /tmp/webreports
 rm -rf /tmp/webreports*
 jmeter \
-	-n \
-	-t "$cwd/partial-login-teachers-boclips.jmx" \
-	-l /tmp/webreports.log \
-	-e \
-	-o /tmp/webreports/ 
+  -n \
+  -t "$cwd/partial-login-teachers-boclips.jmx" \
+  -l /tmp/webreports.log \
+  -e \
+  -o /tmp/webreports/ \
+  -Jthreads="$threads"
