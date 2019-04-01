@@ -15,3 +15,8 @@ To see results
 ```
 open /tmp/webreports/index.html
 ```
+
+To edit a journey
+```
+jmeter -t partial-login-teachers-boclips.jmx
+```
