@@ -146,7 +146,7 @@
             <stringProp name="HTTPSampler.port"></stringProp>
             <stringProp name="HTTPSampler.protocol">https</stringProp>
             <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-            <stringProp name="HTTPSampler.path">auth/realms/teachers/protocol/openid-connect/token</stringProp>
+            <stringProp name="HTTPSampler.path">auth/realms/boclips/protocol/openid-connect/token</stringProp>
             <stringProp name="HTTPSampler.method">POST</stringProp>
             <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
             <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
@@ -195,7 +195,7 @@
             <stringProp name="HTTPSampler.port"></stringProp>
             <stringProp name="HTTPSampler.protocol">https</stringProp>
             <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-            <stringProp name="HTTPSampler.path">/auth/realms/teachers/protocol/openid-connect/auth?client_id=teachers&amp;redirect_uri=https%3A%2F%2Fteachers.staging-boclips.com</stringProp>
+            <stringProp name="HTTPSampler.path">/auth/realms/boclips/protocol/openid-connect/auth?client_id=teachers&amp;redirect_uri=https%3A%2F%2Fteachers.staging-boclips.com</stringProp>
             <stringProp name="HTTPSampler.method">GET</stringProp>
             <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
             <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
