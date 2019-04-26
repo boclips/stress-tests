@@ -1,22 +1,29 @@
 # Stress tests
 
+Testing the limits of our systems.
+
+## Prerequisits
 - Download jmeter 5.0
-- Run the following
+- Make sure jmeter is on the PATH
 
-(Make sure jmeter is in the PATH)
+## Run
 
+Run the suite with 100 concurrent users, added with a 1s delay:
 ```
 # For 100 concurrent users, delaying 1s between thread starts
 ./run-registered-user-journey 100 1
 ```
 
-To see results
+## Results
 
+To see results:
 ```
 open /tmp/webreports/index.html
 ```
 
-To edit a journey
+## Development
+
+To edit a journey:
 ```
 jmeter -t partial-login-teachers-boclips.jmx
 ```
