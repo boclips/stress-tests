@@ -121,7 +121,7 @@
               <elementProp name="client_id" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">true</boolProp>
                 <stringProp name="Argument.name">client_id</stringProp>
-                <stringProp name="Argument.value">admin-cli</stringProp>
+                <stringProp name="Argument.value">boclips-admin</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
                 <boolProp name="HTTPArgument.use_equals">true</boolProp>
               </elementProp>
