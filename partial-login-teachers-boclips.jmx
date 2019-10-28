@@ -46,13 +46,13 @@
           </elementProp>
           <elementProp name="threads" elementType="Argument">
             <stringProp name="Argument.name">threads</stringProp>
-            <stringProp name="Argument.value">${__P(threads,)}</stringProp>
+            <stringProp name="Argument.value">${__P(threads,1)}</stringProp>
             <stringProp name="Argument.desc">The number of concurrent users</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="ramp_up" elementType="Argument">
             <stringProp name="Argument.name">ramp_up</stringProp>
-            <stringProp name="Argument.value">${__P(ramp_up,)}</stringProp>
+            <stringProp name="Argument.value">${__P(ramp_up,1)}</stringProp>
             <stringProp name="Argument.desc">The total time to take to start all threads</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
