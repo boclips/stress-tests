@@ -61,6 +61,16 @@
             <stringProp name="Argument.value">api.staging-boclips.com/v1</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
+          <elementProp name="STRESS_TEST_USERNAME" elementType="Argument">
+            <stringProp name="Argument.name">STRESS_TEST_USERNAME</stringProp>
+            <stringProp name="Argument.value">${__BeanShell( System.getenv(&quot;STRESS_TEST_USERNAME&quot;) )}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="STRESS_TEST_PASSWORD" elementType="Argument">
+            <stringProp name="Argument.name">STRESS_TEST_PASSWORD</stringProp>
+            <stringProp name="Argument.value">${__BeanShell( System.getenv(&quot;STRESS_TEST_PASSWORD&quot;) )}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
         </collectionProp>
       </Arguments>
       <hashTree/>
@@ -215,13 +225,13 @@
                 <elementProp name="username" elementType="HTTPArgument">
                   <boolProp name="HTTPArgument.always_encode">true</boolProp>
                   <stringProp name="Argument.name">username</stringProp>
-                  <stringProp name="Argument.value">stresstest@boclips.com</stringProp>
+                  <stringProp name="Argument.value">${STRESS_TEST_USERNAME}</stringProp>
                   <stringProp name="Argument.metadata">=</stringProp>
                   <boolProp name="HTTPArgument.use_equals">true</boolProp>
                 </elementProp>
                 <elementProp name="password" elementType="HTTPArgument">
                   <boolProp name="HTTPArgument.always_encode">true</boolProp>
-                  <stringProp name="Argument.value">test</stringProp>
+                  <stringProp name="Argument.value">${STRESS_TEST_PASSWORD}</stringProp>
                   <stringProp name="Argument.metadata">=</stringProp>
                   <boolProp name="HTTPArgument.use_equals">true</boolProp>
                   <stringProp name="Argument.name">password</stringProp>
