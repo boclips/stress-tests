@@ -1,0 +1,29 @@
+---
+jobs:
+- name: stress-tests
+  plan:
+  - get: source
+    resource: stress-tests
+  - get: every-24h
+    trigger: true
+  - task: run
+    file: source/pipeline/tasks/run.yml
+    params:
+      NUMBER_OF_THREADS: 4
+      RAMP_UP_TIME: 1
+      STRESS_TEST_USERNAME:
+      STRESS_TEST_PASSWORD:
+
+resources:
+- name: stress-tests
+  type: git
+  icon: fire
+  source:
+    branch: master
+    uri: https://github.com/boclips/stress-tests.git
+
+- name: every-24h
+  type: time
+  icon: clock-outline
+  source:
+    interval: 24h

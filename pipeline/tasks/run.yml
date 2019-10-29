@@ -1,0 +1,23 @@
+---
+platform: linux
+
+image_resource:
+  type: docker-image
+  source:
+    repository: justb4/jmeter
+    tag: 5.1.1
+
+inputs:
+- name: source
+
+outputs:
+- name: results
+
+params:
+  NUMBER_OF_THREADS:
+  RAMP_UP_TIME:
+  STRESS_TEST_USERNAME:
+  STRESS_TEST_PASSWORD:
+
+run:
+  path: source/pipeline/scripts/run

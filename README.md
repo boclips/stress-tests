@@ -11,7 +11,7 @@ Testing the limits of our systems.
 Run the suite with 100 concurrent users, added with a 1s delay:
 ```
 # For 100 concurrent users, delaying 1s between thread starts
-./run-teacher-journeys 100 1
+./run_stress_tests 100 1
 ```
 
 ## Results
@@ -25,5 +25,5 @@ open /tmp/webreports/index.html
 
 To edit a journey:
 ```
-jmeter -t partial-login-teachers-boclips.jmx
+jmeter -t as-logged-in-users.jmx
 ```

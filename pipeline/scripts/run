@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+
+set -x
+
+if [[ -z "$NUMBER_OF_THREADS" \
+   || -z "$RAMP_UP_TIME" \
+   || -z "$STRESS_TEST_USERNAME" \
+   || -z "$STRESS_TEST_PASSWORD" \
+   ]]
+then
+    if [[ -z "$NUMBER_OF_THREADS" ]]
+    then
+        echo "Missing NUMBER_OF_THREADS"
+    fi
+    if [[ -z "$RAMP_UP_TIME" ]]
+    then
+        echo "Missing RAMP_UP_TIME"
+    fi
+    if [[ -z "$STRESS_TEST_USERNAME" ]]
+    then
+        echo "Missing STRESS_TEST_USERNAME"
+    fi
+    if [[ -z "$STRESS_TEST_PASSWORD" ]]
+    then
+        echo "Missing STRESS_TEST_PASSWORD"
+    fi
+fi
+
+pushd ./source
+./run_stress_tests "${NUMBER_OF_THREADS}" "${RAMP_UP_TIME}"
+popd
+
+cp -R /tmp/webreports "results"

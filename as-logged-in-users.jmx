@@ -65,11 +65,13 @@
             <stringProp name="Argument.name">STRESS_TEST_USERNAME</stringProp>
             <stringProp name="Argument.value">${__BeanShell( System.getenv(&quot;STRESS_TEST_USERNAME&quot;) )}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">stress test username</stringProp>
           </elementProp>
           <elementProp name="STRESS_TEST_PASSWORD" elementType="Argument">
             <stringProp name="Argument.name">STRESS_TEST_PASSWORD</stringProp>
             <stringProp name="Argument.value">${__BeanShell( System.getenv(&quot;STRESS_TEST_PASSWORD&quot;) )}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">stress test password</stringProp>
           </elementProp>
         </collectionProp>
       </Arguments>
@@ -702,7 +704,7 @@
         </hashTree>
       </hashTree>
       <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
-        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <boolProp name="ResultCollector.error_logging">true</boolProp>
         <objProp>
           <name>saveConfig</name>
           <value class="SampleSaveConfiguration">

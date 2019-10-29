@@ -1,11 +1,13 @@
 #!/usr/bin/env bash
 
-set -e
+set -ex
 
 cwd="$(cd "$(dirname "$0")" && pwd)"
+
 threads=$1
 ramp_up=$2
-HEAP="-Xms4g -Xmx4g -XX:MaxMetaspaceSize=4096m"
+HEAP="-Xms1g -Xmx1g -XX:MaxMetaspaceSize=256m"
+export HEAP
 
 if [ -z "$threads" ] || [ -z "$ramp_up" ]
 then
@@ -20,14 +22,16 @@ rm -rf /tmp/webreports*
 
 cmd="jmeter \
     -n \
-    -t "$cwd/partial-login-teachers-boclips.jmx" \
+    -t "$cwd/as-logged-in-users.jmx" \
     -l /tmp/webreports.log \
     -e \
     -o /tmp/webreports/ \
     -Jthreads=$threads \
-    -Jramp_up=$ramp_up"
+    -Jramp_up=$ramp_up
+"
 
 echo "$cmd"
-export HEAP
+
 $cmd
+
 echo "To check results: open /tmp/webreports/index.html"
