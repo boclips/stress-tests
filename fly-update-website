@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+fly --target ci \
+    execute \
+    --include-ignored \
+    --config pipeline/tasks/update-website.yml \
+    --input results=./results

@@ -1,0 +1,29 @@
+---
+platform: linux
+
+image_resource:
+  type: docker-image
+  source:
+    repository: google/cloud-sdk
+    tag: 269.0.0
+
+inputs:
+- name: results
+
+params:
+  GOOGLE_CREDENTIALS:
+
+run:
+  path: bash
+  args:
+  - -ec
+  - |-
+    gcloud auth activate-service-account --key-file=<(echo "$GOOGLE_CREDENTIALS")
+    gsutil \
+      -m \
+      rsync \
+      -a public-read \
+      -d \
+      -r \
+      ./results/webreports/ \
+      gs://stress-tests.devboclips.net
