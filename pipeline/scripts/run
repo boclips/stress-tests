@@ -2,32 +2,34 @@
 
 set -x
 
-if [[ -z "$NUMBER_OF_THREADS" \
-   || -z "$RAMP_UP_TIME" \
-   || -z "$STRESS_TEST_USERNAME" \
-   || -z "$STRESS_TEST_PASSWORD" \
-   ]]
+if [[ -z "$NUMBER_OF_THREADS" ]]
 then
-    if [[ -z "$NUMBER_OF_THREADS" ]]
-    then
-        echo "Missing NUMBER_OF_THREADS"
-    fi
-    if [[ -z "$RAMP_UP_TIME" ]]
-    then
-        echo "Missing RAMP_UP_TIME"
-    fi
-    if [[ -z "$STRESS_TEST_USERNAME" ]]
-    then
-        echo "Missing STRESS_TEST_USERNAME"
-    fi
-    if [[ -z "$STRESS_TEST_PASSWORD" ]]
-    then
-        echo "Missing STRESS_TEST_PASSWORD"
-    fi
+    echo "Missing NUMBER_OF_THREADS"
+    exit 1
 fi
 
-pushd ./source
-./run_stress_tests "${NUMBER_OF_THREADS}" "${RAMP_UP_TIME}"
-popd
+if [[ -z "$RAMP_UP_TIME" ]]
+then
+    echo "Missing RAMP_UP_TIME"
+    exit 1
+fi
 
-cp -R /tmp/webreports "results"
+if [[ -z "$STRESS_TEST_USERNAME" ]]
+then
+    echo "Missing STRESS_TEST_USERNAME"
+    exit 1
+fi
+
+if [[ -z "$STRESS_TEST_PASSWORD" ]]
+then
+    echo "Missing STRESS_TEST_PASSWORD"
+    exit 1
+fi
+
+(
+cd ./source || exit 1
+./run_stress_tests "$NUMBER_OF_THREADS" "$RAMP_UP_TIME"
+)
+
+cp -R /tmp/webreports results/
+cp /tmp/webreports.log results/
