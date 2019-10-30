@@ -21,8 +21,8 @@ run:
     gcloud auth activate-service-account --key-file=<(echo "$GOOGLE_CREDENTIALS")
     gsutil \
       -m \
-      rsync \
       -h "Cache-Control:no-cache,max-age=0" \
+      rsync \
       -a public-read \
       -d \
       -r \
