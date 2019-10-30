@@ -13,11 +13,15 @@ jobs:
       RAMP_UP_TIME: 1
       STRESS_TEST_USERNAME:
       STRESS_TEST_PASSWORD:
+  - task: update-website
+    file: source/pipeline/tasks/update-website.yml
+    params:
+      GOOGLE_CREDENTIALS: ((gcs.key))
 
 resources:
 - name: stress-tests
   type: git
-  icon: fire
+  icon: github-circle
   source:
     branch: master
     uri: https://github.com/boclips/stress-tests.git
