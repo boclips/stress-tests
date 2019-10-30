@@ -22,6 +22,7 @@ run:
     gsutil \
       -m \
       rsync \
+      -h "Cache-Control:no-cache,max-age=0" \
       -a public-read \
       -d \
       -r \
