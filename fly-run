@@ -4,8 +4,8 @@ set -e
 
 cwd="$(cd "$(dirname "$0")" && pwd)"
 
-NUMBER_OF_THREADS=1 \
-RAMP_UP_TIME=10 \
+NUMBER_OF_THREADS=100 \
+RAMP_UP_TIME=1 \
 STRESS_TEST_USERNAME="$(get-k8s-concourse-secret boclips stress-tests username)" \
 STRESS_TEST_PASSWORD="$(get-k8s-concourse-secret boclips stress-tests password)" \
 fly --target ci \
