@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+GOOGLE_CREDENTIALS="$(get-k8s-concourse-secret stress-tests gcs key)" \
 fly --target ci \
     execute \
     --include-ignored \
