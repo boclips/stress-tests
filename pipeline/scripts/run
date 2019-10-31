@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-set -x
-
 if [[ -z "$NUMBER_OF_THREADS" ]]
 then
     echo "Missing NUMBER_OF_THREADS"
