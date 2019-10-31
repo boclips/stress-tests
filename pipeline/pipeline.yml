@@ -11,8 +11,8 @@ jobs:
     params:
       NUMBER_OF_THREADS: 4
       RAMP_UP_TIME: 1
-      STRESS_TEST_USERNAME:
-      STRESS_TEST_PASSWORD:
+      STRESS_TEST_USERNAME: ((credentials.username))
+      STRESS_TEST_PASSWORD: ((credentials.password))
   - task: update-website
     file: source/pipeline/tasks/update-website.yml
     params:
