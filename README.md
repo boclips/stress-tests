@@ -11,7 +11,7 @@ Testing the limits of our systems.
 Run the suite with 100 concurrent users, added with a 1s delay:
 ```
 # For 100 concurrent users, delaying 1s between thread starts
-./run_stress_tests 100 1
+./run-stress-tests 100 1
 ```
 
 ## Results
