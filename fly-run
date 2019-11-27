@@ -4,10 +4,16 @@ set -e
 
 cwd="$(cd "$(dirname "$0")" && pwd)"
 
-NUMBER_OF_THREADS=100 \
-RAMP_UP_TIME=1 \
-STRESS_TEST_USERNAME="$(get-k8s-concourse-secret boclips stress-tests username)" \
-STRESS_TEST_PASSWORD="$(get-k8s-concourse-secret boclips stress-tests password)" \
+NUMBER_OF_THREADS=100
+RAMP_UP_TIME=1
+STRESS_TEST_USERNAME="$(get-k8s-concourse-secret boclips stress-tests username)"
+STRESS_TEST_PASSWORD="$(get-k8s-concourse-secret boclips stress-tests password)"
+
+export NUMBER_OF_THREADS
+export RAMP_UP_TIME
+export STRESS_TEST_USERNAME
+export STRESS_TEST_PASSWORD
+
 fly --target ci \
     execute \
     --config "$cwd/pipeline/tasks/run.yml" \
