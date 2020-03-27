@@ -16,6 +16,6 @@ export STRESS_TEST_PASSWORD
 
 fly --target ci \
     execute \
-    --config "$cwd/pipeline/tasks/run.yml" \
+    --config "$cwd/pipeline/tasks/run.yaml" \
     --input source="$cwd" \
     --output results=results

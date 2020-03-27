@@ -7,14 +7,14 @@ jobs:
   - get: every-24h
     trigger: true
   - task: run
-    file: source/pipeline/tasks/run.yml
+    file: source/pipeline/tasks/run.yaml
     params:
       NUMBER_OF_THREADS: 300
       RAMP_UP_TIME: 60
       STRESS_TEST_USERNAME: ((credentials.username))
       STRESS_TEST_PASSWORD: ((credentials.password))
   - task: update-website
-    file: source/pipeline/tasks/update-website.yml
+    file: source/pipeline/tasks/update-website.yaml
     params:
       GOOGLE_CREDENTIALS: ((gcs.key))
 

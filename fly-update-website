@@ -4,5 +4,5 @@ GOOGLE_CREDENTIALS="$(bo show credential concourse-main stress-tests.gcs key)" \
 fly --target ci \
     execute \
     --include-ignored \
-    --config pipeline/tasks/update-website.yml \
+    --config pipeline/tasks/update-website.yaml \
     --input results=./results
