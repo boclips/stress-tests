@@ -1,6 +1,29 @@
 ---
+meta:
+  update_website:
+    &update_website
+    task: update-website
+    file: source/pipeline/tasks/update-website.yaml
+    params:
+      GOOGLE_CREDENTIALS: ((gcs.key))
+
 jobs:
-- name: stress-tests
+- name: slam
+  serial_groups: [stress]
+  plan:
+  - get: source
+    resource: stress-tests
+  - task: run
+    file: source/pipeline/tasks/run.yaml
+    params:
+      NUMBER_OF_THREADS: 800
+      RAMP_UP_TIME: 2
+      STRESS_TEST_USERNAME: ((credentials.username))
+      STRESS_TEST_PASSWORD: ((credentials.password))
+  - *update_website
+
+- name: slow-burn
+  serial_groups: [stress]
   plan:
   - get: source
     resource: stress-tests
@@ -13,10 +36,7 @@ jobs:
       RAMP_UP_TIME: 60
       STRESS_TEST_USERNAME: ((credentials.username))
       STRESS_TEST_PASSWORD: ((credentials.password))
-  - task: update-website
-    file: source/pipeline/tasks/update-website.yaml
-    params:
-      GOOGLE_CREDENTIALS: ((gcs.key))
+  - *update_website
 
 resources:
 - name: stress-tests
