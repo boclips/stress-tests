@@ -9,7 +9,7 @@ jobs:
   - task: run
     file: source/pipeline/tasks/run.yml
     params:
-      NUMBER_OF_THREADS: 200
+      NUMBER_OF_THREADS: 300
       RAMP_UP_TIME: 60
       STRESS_TEST_USERNAME: ((credentials.username))
       STRESS_TEST_PASSWORD: ((credentials.password))
