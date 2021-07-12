@@ -4,14 +4,15 @@ set -e
 
 cwd="$(cd "$(dirname "$0")" && pwd)"
 
-threads=$1
-ramp_up=$2
+journey=$1
+threads=$2
+ramp_up=$3
 HEAP="-Xms1g -Xmx8g -XX:MaxMetaspaceSize=256m"
 export HEAP
 
 if [ -z "$threads" ] || [ -z "$ramp_up" ]
 then
-    echo "Usage: $(basename "$0") THREADS DELAY_THREAD_START"
+    echo "Usage: $(basename "$0") JOURNEY THREADS DELAY_THREAD_START"
     echo "Where THREADS is number of users and RAMP_UP is the time" \
         "in seconds it takes to start all the threads."
     exit 1
@@ -22,7 +23,7 @@ rm -rf /tmp/webreports*
 
 cmd="jmeter \
     -n \
-    -t "$cwd/as-logged-in-users.jmx" \
+    -t "$cwd/$journey" \
     -l /tmp/webreports.log \
     -e \
     -o /tmp/webreports/ \

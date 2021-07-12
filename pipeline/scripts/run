@@ -26,7 +26,7 @@ fi
 
 (
 cd ./source || exit 1
-./run-stress-tests "$NUMBER_OF_THREADS" "$RAMP_UP_TIME"
+./run-stress-tests as-logged-in-teachers.jmx "$NUMBER_OF_THREADS" "$RAMP_UP_TIME"
 )
 
 cp -R /tmp/webreports results/
