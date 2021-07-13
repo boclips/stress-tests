@@ -179,7 +179,7 @@
               <collectionProp name="HeaderManager.headers">
                 <elementProp name="Origin" elementType="Header">
                   <stringProp name="Header.name">Origin</stringProp>
-                  <stringProp name="Header.value">https://teachers.staging-boclips.com</stringProp>
+                  <stringProp name="Header.value">https://videos.boclips.com</stringProp>
                 </elementProp>
                 <elementProp name="Content-type" elementType="Header">
                   <stringProp name="Header.name">Content-type</stringProp>
@@ -191,7 +191,7 @@
                 </elementProp>
                 <elementProp name="Referer" elementType="Header">
                   <stringProp name="Header.name">Referer</stringProp>
-                  <stringProp name="Header.value">https://teachers.staging-boclips.com/</stringProp>
+                  <stringProp name="Header.value">https://videos.boclips.com</stringProp>
                 </elementProp>
               </collectionProp>
             </HeaderManager>

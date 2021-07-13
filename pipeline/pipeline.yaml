@@ -18,8 +18,8 @@ jobs:
     params:
       NUMBER_OF_THREADS: 800
       RAMP_UP_TIME: 2
-      STRESS_TEST_USERNAME: ((credentials.username))
-      STRESS_TEST_PASSWORD: ((credentials.password))
+      STRESS_TEST_CLIENT_ID: ((credentials.client_id))
+      STRESS_TEST_CLIENT_SECRET: ((credentials.client_secret))
   - *update_website
 
 - name: slow-burn
@@ -32,10 +32,10 @@ jobs:
   - task: run
     file: source/pipeline/tasks/run.yaml
     params:
-      NUMBER_OF_THREADS: 300
-      RAMP_UP_TIME: 60
-      STRESS_TEST_USERNAME: ((credentials.username))
-      STRESS_TEST_PASSWORD: ((credentials.password))
+      NUMBER_OF_THREADS: 2000
+      RAMP_UP_TIME: 30
+      STRESS_TEST_CLIENT_ID: ((credentials.client_id))
+      STRESS_TEST_CLIENT_SECRET: ((credentials.client_secret))
   - *update_website
 
 resources:

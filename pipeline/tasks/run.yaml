@@ -16,8 +16,8 @@ outputs:
 params:
   NUMBER_OF_THREADS:
   RAMP_UP_TIME:
-  STRESS_TEST_USERNAME:
-  STRESS_TEST_PASSWORD:
+  STRESS_TEST_CLIENT_ID:
+  STRESS_TEST_CLIENT_SECRET:
 
 run:
   path: source/pipeline/scripts/run

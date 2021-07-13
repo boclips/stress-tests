@@ -12,21 +12,21 @@ then
     exit 1
 fi
 
-if [[ -z "$STRESS_TEST_USERNAME" ]]
+if [[ -z "$STRESS_TEST_CLIENT_ID" ]]
 then
-    echo "Missing STRESS_TEST_USERNAME"
+    echo "Missing STRESS_TEST_CLIENT_ID"
     exit 1
 fi
 
-if [[ -z "$STRESS_TEST_PASSWORD" ]]
+if [[ -z "$STRESS_TEST_CLIENT_SECRET" ]]
 then
-    echo "Missing STRESS_TEST_PASSWORD"
+    echo "Missing STRESS_TEST_CLIENT_SECRET"
     exit 1
 fi
 
 (
 cd ./source || exit 1
-./run-stress-tests as-logged-in-teachers.jmx "$NUMBER_OF_THREADS" "$RAMP_UP_TIME"
+./run-stress-tests as-api-integration.jmx "$NUMBER_OF_THREADS" "$RAMP_UP_TIME"
 )
 
 cp -R /tmp/webreports results/

@@ -7,7 +7,7 @@ cwd="$(cd "$(dirname "$0")" && pwd)"
 journey=$1
 threads=$2
 ramp_up=$3
-HEAP="-Xms1g -Xmx8g -XX:MaxMetaspaceSize=256m"
+HEAP="-Xms8g -Xmx16g -XX:MaxMetaspaceSize=256m"
 export HEAP
 
 if [ -z "$threads" ] || [ -z "$ramp_up" ]
